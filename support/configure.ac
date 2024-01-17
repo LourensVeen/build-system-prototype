@@ -22,12 +22,7 @@ AX_FFTW()
 AX_LIB_HDF5()
 AX_LIB_NETCDF4()
 
-
-# Sapporo
-
-# HDF5
-
-# NetCDF
+# TODO: detect Sapporo using pkg-config
 
 
 
