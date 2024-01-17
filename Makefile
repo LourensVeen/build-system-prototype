@@ -1,6 +1,7 @@
 include support/amuse.mk
 include support/dependencies.mk
 include support/help.mk
+include support/format.mk
 
 # only user-facing targets here
 
