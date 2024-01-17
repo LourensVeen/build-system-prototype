@@ -1,0 +1,9 @@
+*.o
+*.a
+*.so
+*worker
+
+**/*.egg-info
+amuse-ph4-cpu/build
+amuse-ph4-gpu/build
+

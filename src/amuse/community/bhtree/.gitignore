@@ -1,0 +1,8 @@
+*.o
+*.a
+*.so
+*worker
+
+**/*.egg-info
+amuse-bhtree/build
+
