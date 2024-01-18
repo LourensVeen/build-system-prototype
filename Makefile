@@ -36,16 +36,24 @@ ifneq (,$(ENVIRONMENT_TYPE))
 	@printf '%b\n' '$(INSTALL_HELP)'
 endif
 
-# TODO: figure out what to do with libs and framework
 # TODO: figure out dependencies between community codes and libs and framework
 # install-packages and develop-packages
-.PHONY: libs
-libs:
-	$(MAKE) -C lib all
+
+
+.PHONY: install-framework
+install-framework:
+	cd src && pip install .
+
+.PHONY: develop-framework
+develop-framework:
+	cd src && pip install -e .
+
+.PHONY: install-libs
+install-libs:
+	$(MAKE) -C lib install
 
 .PHONY: install
-install:
-	$(MAKE) -C lib install
+install: install-framework install-libs install-packages
 
 .PHONY: clean
 clean:
