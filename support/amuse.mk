@@ -11,7 +11,7 @@ please_specify_a_goal:
 ifeq (, $(filter configure clean, $(MAKECMDGOALS)))
 
 support/features.mk:
-	./configure
+	cd support && ./configure $(CONFIGOPTS)
 
 include support/features.mk
 

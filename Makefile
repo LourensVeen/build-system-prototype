@@ -9,7 +9,7 @@ include support/venv.mk
 .PHONY: configure
 configure:
 	rm -f support/features.mk
-	cd support && ./configure $(CONFIGOPTS)
+	$(MAKE) support/features.mk
 	$(MAKE) show-config
 
 .PHONY: show-config
