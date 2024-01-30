@@ -1,7 +1,8 @@
 include support/amuse.mk
 include support/dependencies.mk
-include support/help.mk
 include support/format.mk
+include support/help.mk
+include support/venv.mk
 
 # only user-facing targets here
 
@@ -26,13 +27,13 @@ show-config:
 	@printf '$(DISABLED_PACKAGES)\n'
 	@echo
 	@printf '%b\n' '$(COLOR_CYAN)*** Next steps ***$(COLOR_END)'
-ifeq (,$(ENVIRONMENT_TYPE))
+ifeq (,$(ENV_TYPE))
 	@printf '%b\n' '$(ENVIRONMENT_HELP)'
 endif
 ifneq (, $(DISABLED_PACKAGES))
 	@printf '%b\n' '$(DISABLED_PACKAGES_MESSAGE)'
 endif
-ifneq (,$(ENVIRONMENT_TYPE))
+ifneq (,$(ENV_TYPE))
 	@printf '%b\n' '$(INSTALL_HELP)'
 endif
 

@@ -68,20 +68,6 @@ support/comm_deps_mk/%.mk: src/amuse/community/%
 	@echo endif >>$@
 
 
-# Detect environment
-ENVIRONMENT_TYPE =
-
-ifneq (,$(VIRTUAL_ENV))
-ENVIRONMENT_TYPE = virtualenv
-ENVIRONMENT_NAME = $(VIRTUAL_ENV)
-endif
-
-ifneq (,$(CONDA_DEFAULT_ENV))
-ENVIRONMENT_TYPE = conda
-ENVIRONMENT_NAME = $(CONDA_DEFAULT_ENV)
-endif
-
-
 # Special target that you can depend on to force a target to be remade every time
 FORCE:
 
