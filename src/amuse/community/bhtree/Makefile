@@ -19,9 +19,11 @@ amuse-bhtree_contains: cpu_worker
 
 # Building and installing packages
 develop-%: %_contains $(CODELIB)
+	support/uninstall.sh $*
 	python -m pip install -e ./$*
 
-install-%:
+install-%: %_contains $(CODELIB)
+	support/uninstall.sh $*
 	python -m pip install ./$*
 
 

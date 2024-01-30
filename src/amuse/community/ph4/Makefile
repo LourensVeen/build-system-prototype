@@ -26,9 +26,11 @@ amuse-ph4-gpu_contains: cpu_worker gpu_worker
 
 # Building and installing packages
 develop-%: %_contains $(CODELIB)
+	support/uninstall.sh $*
 	python -m pip install -e ./$*
 
 install-%:
+	support/uninstall.sh $*
 	python -m pip install ./$*
 
 
