@@ -40,6 +40,57 @@ endef
 ENVIRONMENT_HELP := $(subst $(newline),\n,$(subst ','\'',$(ENVIRONMENT_HELP)))
 
 
+define NO_PIP_WHEEL_MESSAGE :=
+
+$(BOLD)* Install pip and wheel *$(END_BOLD)
+
+Installation is disabled due to a lack of the right pip and/or wheel in the
+environment. You can enable AMUSE installation by correctly installing pip and wheel.
+
+To do that, use
+
+
+endef
+
+ifeq ($(ENV_TYPE), virtualenv)
+define NO_PIP_WHEEL_MESSAGE +=
+    python -m pip install pip wheel
+
+endef
+endif
+
+ifeq ($(ENV_TYPE), conda)
+ifneq (,$(HAVE_PYPI_WHEEL))
+define NO_PIP_WHEEL_MESSAGE +=
+    python -m pip uninstall wheel
+
+endef
+endif
+ifneq (,$(HAVE_PYPI_PIP))
+define NO_PIP_WHEEL_MESSAGE +=
+    python -m pip uninstall pip
+
+endef
+endif
+define NO_PIP_WHEEL_MESSAGE +=
+    conda install pip wheel
+
+endef
+endif
+
+define NO_PIP_WHEEL_MESSAGE +=
+
+and then run
+
+    make configure
+
+again to continue.
+
+endef
+
+NO_PIP_WHEEL_MESSAGE := $(subst $(newline),\n,$(subst ','\'',$(NO_PIP_WHEEL_MESSAGE)))
+
+
 define DISABLED_PACKAGES_MESSAGE :=
 
 $(BOLD)* Enable more packages *$(END_BOLD)
@@ -53,7 +104,8 @@ above and use the commands below to install the corresponding software.
 
 endef
 
-ifneq ($(ENVIRONMENT_TYPE), conda)
+
+ifneq ($(ENV_TYPE), conda)
 define DISABLED_PACKAGES_MESSAGE +=
 
 Creating and activating a Conda environment will allow you to install the missing
@@ -116,7 +168,7 @@ define INSTALL_HELP :=
 $(BOLD)* Install AMUSE *$(END_BOLD)
 
 To install the AMUSE framework and all of the enabled packages into the active
-$(ENVIRONMENT_TYPE) environment $(ENVIRONMENT_NAME), type
+$(ENV_TYPE) environment $(ENV_NAME), type
 
     make install-packages
 

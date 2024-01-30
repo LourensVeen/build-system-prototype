@@ -68,9 +68,6 @@ support/comm_deps_mk/%.mk: src/amuse/community/%
 	@echo endif >>$@
 
 
-# Special target that you can depend on to force a target to be remade every time
-FORCE:
-
 # Extend the 'distclean' target to clean up the files we made above
 .PHONY: distclean
 distclean: clean_comm_deps clean_features

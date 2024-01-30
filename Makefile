@@ -30,6 +30,9 @@ show-config:
 ifeq (,$(ENV_TYPE))
 	@printf '%b\n' '$(ENVIRONMENT_HELP)'
 endif
+ifeq (,$(HAVE_PIP_WHEEL))
+	@printf '%b\n' '$(NO_PIP_WHEEL_MESSAGE)'
+endif
 ifneq (, $(DISABLED_PACKAGES))
 	@printf '%b\n' '$(DISABLED_PACKAGES_MESSAGE)'
 endif
@@ -52,6 +55,10 @@ develop-framework:
 .PHONY: install-libs
 install-libs:
 	$(MAKE) -C lib install
+
+.PHONY: install-packages
+
+.PHONY: develop-packages
 
 .PHONY: install
 install: install-framework install-libs install-packages
