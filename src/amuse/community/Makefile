@@ -1,4 +1,4 @@
-COMMUNITY_CODES = $(filter-out Makefile, $(wildcard *))
+COMMUNITY_CODES = $(filter-out Makefile __init__.py, $(wildcard *))
 
 .PHONY: $(MAKECMDGOALS)
 $(MAKECMDGOALS): $(COMMUNITY_CODES)

@@ -1,16 +1,25 @@
+# Default target, in case the user types 'make' without saying what they want
+please_specify_a_goal:
+	@echo Please specify what to do. Try
+	@echo
+	@echo '    make configure'
+	@echo
+	@echo to get started.
+
+
+.PHONY: configure
+configure:
+	rm -f support/features.mk
+	$(MAKE) show-config
+
+
+ifneq (,$(filter-out configure clean distclean, $(MAKECMDGOALS)))
+
 include support/amuse.mk
 include support/dependencies.mk
 include support/format.mk
 include support/help.mk
 include support/venv.mk
-
-# only user-facing targets here
-
-.PHONY: configure
-configure:
-	rm -f support/features.mk
-	$(MAKE) support/features.mk
-	$(MAKE) show-config
 
 .PHONY: show-config
 show-config:
@@ -30,7 +39,7 @@ show-config:
 ifeq (,$(ENV_TYPE))
 	@printf '%b\n' '$(ENVIRONMENT_HELP)'
 endif
-ifeq (,$(HAVE_PIP_WHEEL))
+ifneq (,$(NEED_PIP_WHEEL))
 	@printf '%b\n' '$(NO_PIP_WHEEL_MESSAGE)'
 endif
 ifneq (, $(DISABLED_PACKAGES))
@@ -62,6 +71,8 @@ install-libs:
 
 .PHONY: install
 install: install-framework install-libs install-packages
+
+endif
 
 .PHONY: clean
 clean:

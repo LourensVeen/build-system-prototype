@@ -783,6 +783,11 @@ ac_ct_CC
 CPPFLAGS
 LDFLAGS
 CFLAGS
+CMAKE
+HOMEBREW
+MACPORTS
+DNF
+APT
 JAVAC
 FC
 CXX
@@ -3023,6 +3028,518 @@ esac
   fi
 else
   JAVAC="$ac_cv_prog_JAVAC"
+fi
+
+
+if test -n "$ac_tool_prefix"; then
+  # Extract the first word of "${ac_tool_prefix}apt", so it can be a program name with args.
+set dummy ${ac_tool_prefix}apt; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_prog_APT+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  if test -n "$APT"; then
+  ac_cv_prog_APT="$APT" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_prog_APT="${ac_tool_prefix}apt"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+APT=$ac_cv_prog_APT
+if test -n "$APT"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $APT" >&5
+printf "%s\n" "$APT" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+fi
+if test -z "$ac_cv_prog_APT"; then
+  ac_ct_APT=$APT
+  # Extract the first word of "apt", so it can be a program name with args.
+set dummy apt; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_prog_ac_ct_APT+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  if test -n "$ac_ct_APT"; then
+  ac_cv_prog_ac_ct_APT="$ac_ct_APT" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_prog_ac_ct_APT="apt"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+ac_ct_APT=$ac_cv_prog_ac_ct_APT
+if test -n "$ac_ct_APT"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_ct_APT" >&5
+printf "%s\n" "$ac_ct_APT" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+  if test "x$ac_ct_APT" = x; then
+    APT=""
+  else
+    case $cross_compiling:$ac_tool_warned in
+yes:)
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: using cross tools not prefixed with host triplet" >&5
+printf "%s\n" "$as_me: WARNING: using cross tools not prefixed with host triplet" >&2;}
+ac_tool_warned=yes ;;
+esac
+    APT=$ac_ct_APT
+  fi
+else
+  APT="$ac_cv_prog_APT"
+fi
+
+if test -n "$ac_tool_prefix"; then
+  # Extract the first word of "${ac_tool_prefix}dnf", so it can be a program name with args.
+set dummy ${ac_tool_prefix}dnf; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_prog_DNF+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  if test -n "$DNF"; then
+  ac_cv_prog_DNF="$DNF" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_prog_DNF="${ac_tool_prefix}dnf"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+DNF=$ac_cv_prog_DNF
+if test -n "$DNF"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $DNF" >&5
+printf "%s\n" "$DNF" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+fi
+if test -z "$ac_cv_prog_DNF"; then
+  ac_ct_DNF=$DNF
+  # Extract the first word of "dnf", so it can be a program name with args.
+set dummy dnf; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_prog_ac_ct_DNF+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  if test -n "$ac_ct_DNF"; then
+  ac_cv_prog_ac_ct_DNF="$ac_ct_DNF" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_prog_ac_ct_DNF="dnf"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+ac_ct_DNF=$ac_cv_prog_ac_ct_DNF
+if test -n "$ac_ct_DNF"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_ct_DNF" >&5
+printf "%s\n" "$ac_ct_DNF" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+  if test "x$ac_ct_DNF" = x; then
+    DNF=""
+  else
+    case $cross_compiling:$ac_tool_warned in
+yes:)
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: using cross tools not prefixed with host triplet" >&5
+printf "%s\n" "$as_me: WARNING: using cross tools not prefixed with host triplet" >&2;}
+ac_tool_warned=yes ;;
+esac
+    DNF=$ac_ct_DNF
+  fi
+else
+  DNF="$ac_cv_prog_DNF"
+fi
+
+if test -n "$ac_tool_prefix"; then
+  # Extract the first word of "${ac_tool_prefix}port", so it can be a program name with args.
+set dummy ${ac_tool_prefix}port; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_prog_MACPORTS+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  if test -n "$MACPORTS"; then
+  ac_cv_prog_MACPORTS="$MACPORTS" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_prog_MACPORTS="${ac_tool_prefix}port"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+MACPORTS=$ac_cv_prog_MACPORTS
+if test -n "$MACPORTS"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $MACPORTS" >&5
+printf "%s\n" "$MACPORTS" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+fi
+if test -z "$ac_cv_prog_MACPORTS"; then
+  ac_ct_MACPORTS=$MACPORTS
+  # Extract the first word of "port", so it can be a program name with args.
+set dummy port; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_prog_ac_ct_MACPORTS+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  if test -n "$ac_ct_MACPORTS"; then
+  ac_cv_prog_ac_ct_MACPORTS="$ac_ct_MACPORTS" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_prog_ac_ct_MACPORTS="port"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+ac_ct_MACPORTS=$ac_cv_prog_ac_ct_MACPORTS
+if test -n "$ac_ct_MACPORTS"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_ct_MACPORTS" >&5
+printf "%s\n" "$ac_ct_MACPORTS" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+  if test "x$ac_ct_MACPORTS" = x; then
+    MACPORTS=""
+  else
+    case $cross_compiling:$ac_tool_warned in
+yes:)
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: using cross tools not prefixed with host triplet" >&5
+printf "%s\n" "$as_me: WARNING: using cross tools not prefixed with host triplet" >&2;}
+ac_tool_warned=yes ;;
+esac
+    MACPORTS=$ac_ct_MACPORTS
+  fi
+else
+  MACPORTS="$ac_cv_prog_MACPORTS"
+fi
+
+if test -n "$ac_tool_prefix"; then
+  # Extract the first word of "${ac_tool_prefix}brew", so it can be a program name with args.
+set dummy ${ac_tool_prefix}brew; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_prog_HOMEBREW+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  if test -n "$HOMEBREW"; then
+  ac_cv_prog_HOMEBREW="$HOMEBREW" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_prog_HOMEBREW="${ac_tool_prefix}brew"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+HOMEBREW=$ac_cv_prog_HOMEBREW
+if test -n "$HOMEBREW"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $HOMEBREW" >&5
+printf "%s\n" "$HOMEBREW" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+fi
+if test -z "$ac_cv_prog_HOMEBREW"; then
+  ac_ct_HOMEBREW=$HOMEBREW
+  # Extract the first word of "brew", so it can be a program name with args.
+set dummy brew; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_prog_ac_ct_HOMEBREW+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  if test -n "$ac_ct_HOMEBREW"; then
+  ac_cv_prog_ac_ct_HOMEBREW="$ac_ct_HOMEBREW" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_prog_ac_ct_HOMEBREW="brew"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+ac_ct_HOMEBREW=$ac_cv_prog_ac_ct_HOMEBREW
+if test -n "$ac_ct_HOMEBREW"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_ct_HOMEBREW" >&5
+printf "%s\n" "$ac_ct_HOMEBREW" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+  if test "x$ac_ct_HOMEBREW" = x; then
+    HOMEBREW=""
+  else
+    case $cross_compiling:$ac_tool_warned in
+yes:)
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: using cross tools not prefixed with host triplet" >&5
+printf "%s\n" "$as_me: WARNING: using cross tools not prefixed with host triplet" >&2;}
+ac_tool_warned=yes ;;
+esac
+    HOMEBREW=$ac_ct_HOMEBREW
+  fi
+else
+  HOMEBREW="$ac_cv_prog_HOMEBREW"
+fi
+
+
+if test -n "$ac_tool_prefix"; then
+  # Extract the first word of "${ac_tool_prefix}cmake", so it can be a program name with args.
+set dummy ${ac_tool_prefix}cmake; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_prog_CMAKE+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  if test -n "$CMAKE"; then
+  ac_cv_prog_CMAKE="$CMAKE" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_prog_CMAKE="${ac_tool_prefix}cmake"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+CMAKE=$ac_cv_prog_CMAKE
+if test -n "$CMAKE"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $CMAKE" >&5
+printf "%s\n" "$CMAKE" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+fi
+if test -z "$ac_cv_prog_CMAKE"; then
+  ac_ct_CMAKE=$CMAKE
+  # Extract the first word of "cmake", so it can be a program name with args.
+set dummy cmake; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_prog_ac_ct_CMAKE+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  if test -n "$ac_ct_CMAKE"; then
+  ac_cv_prog_ac_ct_CMAKE="$ac_ct_CMAKE" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_prog_ac_ct_CMAKE="cmake"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+ac_ct_CMAKE=$ac_cv_prog_ac_ct_CMAKE
+if test -n "$ac_ct_CMAKE"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_ct_CMAKE" >&5
+printf "%s\n" "$ac_ct_CMAKE" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+  if test "x$ac_ct_CMAKE" = x; then
+    CMAKE=""
+  else
+    case $cross_compiling:$ac_tool_warned in
+yes:)
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: using cross tools not prefixed with host triplet" >&5
+printf "%s\n" "$as_me: WARNING: using cross tools not prefixed with host triplet" >&2;}
+ac_tool_warned=yes ;;
+esac
+    CMAKE=$ac_ct_CMAKE
+  fi
+else
+  CMAKE="$ac_cv_prog_CMAKE"
 fi
 
 
@@ -9840,12 +10357,7 @@ printf "%s\n" "#define HAVE_NETCDF4 1" >>confdefs.h
 fi
 
 
-
-# Sapporo
-
-# HDF5
-
-# NetCDF
+# TODO: detect Sapporo using pkg-config
 
 
 
@@ -9855,8 +10367,8 @@ fi
 # in the second argument is defined.
 
 
-# Add the first argument to FEATURES if the variable in the second argument
-# has the value specified in the third argument.
+# Add the first argument to FEATURES if the variable in the second argument has the
+# value specified in the third argument.
 
 
 FEATURES="forsockets"

@@ -9,7 +9,6 @@ ENV_NAME = $(VIRTUAL_ENV)
 
 HAVE_WHEEL = $(shell pip list | grep '^wheel')
 HAVE_PIP = $(shell pip list | grep '^pip')
-
 endif
 
 ifneq (,$(CONDA_DEFAULT_ENV))
@@ -21,13 +20,21 @@ HAVE_PYPI_PIP = $(shell conda list | grep pypi | grep '^pip')
 
 HAVE_WHEEL = $(shell conda list | grep -v pypi | grep '^wheel')
 HAVE_PIP = $(shell conda list | grep -v pypi | grep '^pip')
-
 endif
 
-ifneq (,$(HAVE_PIP))
 ifneq (,$(HAVE_WHEEL))
+ifneq (,$(HAVE_PIP))
 
 HAVE_PIP_WHEEL = 1
+
+endif
+endif
+
+
+ifneq (,$(ENV_TYPE))
+ifeq (,$(HAVE_PIP_WHEEL))
+
+NEED_PIP_WHEEL = 1
 
 endif
 endif

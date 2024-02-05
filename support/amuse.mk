@@ -1,21 +1,11 @@
-# Default target, in case the user types 'make' without saying what they want
-please_specify_a_goal:
-	@echo Please specify what to do. Try
-	@echo
-	@echo '    make configure'
-	@echo
-	@echo to get started.
+ifneq (,$(filter-out configure clean distclean, $(MAKECMDGOALS)))
 
 
 # Detect what features we have
-ifeq (, $(filter configure clean, $(MAKECMDGOALS)))
-
 support/features.mk:
 	cd support && ./configure $(CONFIGOPTS)
 
 include support/features.mk
-
-endif
 
 
 # List of enabled packages, filled by the .amuse_dep.mk files
@@ -66,6 +56,9 @@ support/comm_deps_mk/%.mk: src/amuse/community/%
 	@echo >>$@
 	@echo 'DISABLED_PACKAGES += \\n$(notdir $(patsubst %.amuse_deps,%,$*)) (missing features: $(COLOR_RED)$$(MISSING_FEATURES)$(COLOR_END))' >>$@
 	@echo endif >>$@
+
+
+endif               # target is not configure, clean, distclean or empty
 
 
 # Extend the 'distclean' target to clean up the files we made above

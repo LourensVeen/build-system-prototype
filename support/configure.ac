@@ -10,6 +10,13 @@ AC_CHECK_TOOL(CXX, g++)
 AC_CHECK_TOOL(FC, gfortran)
 AC_CHECK_TOOL(JAVAC, javac)
 
+AC_CHECK_TOOL(APT, apt)
+AC_CHECK_TOOL(DNF, dnf)
+AC_CHECK_TOOL(MACPORTS, port)
+AC_CHECK_TOOL(HOMEBREW, brew)
+
+AC_CHECK_TOOL(CMAKE, cmake)
+
 AX_MPI()
 AX_OPENMP([HAVE_OPENMP="yes"])
 AX_CUDA()
@@ -33,8 +40,8 @@ AX_LIB_NETCDF4()
 m4_define([ENABLE_FEATURE_IF_DEFINED],
           [AS_IF([test "x" != "x${$2}"], [FEATURES="${FEATURES} $1"])])
 
-# Add the first argument to FEATURES if the variable in the second argument
-# has the value specified in the third argument.
+# Add the first argument to FEATURES if the variable in the second argument has the
+# value specified in the third argument.
 m4_define([ENABLE_FEATURE_IF_EQUALS],
           [AS_IF([test "x${$2}" = "x$3"], [FEATURES="${FEATURES} $1"])])
 

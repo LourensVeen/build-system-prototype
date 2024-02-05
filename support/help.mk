@@ -1,3 +1,5 @@
+include support/dependencies.mk
+include support/features.mk
 include support/format.mk
 include support/venv.mk
 
@@ -99,13 +101,80 @@ Some packages are disabled due to missing features. You can enable more packages
 installing additional software. Some software does require specific hardware, for
 example CUDA requires an nVidia GPU to work.
 
-To enable a package that is listed as disabled above, look up the missing features
-above and use the commands below to install the corresponding software.
-
 endef
 
 
-ifneq ($(ENV_TYPE), conda)
+ifneq (, $(MACPORTS))
+define DISABLED_PACKAGES_MESSAGE +=
+
+$(BOLD)Installing libraries using MacPorts$(END_BOLD)
+
+We seem to be running on a Mac with MacPorts installed. Here's how to install the
+required packages for all codes system-wide using MacPorts:
+
+$(MACPORTS_CMDS)
+
+endef
+endif
+
+
+ifneq (,$(HOMEBREW))
+define DISABLED_PACKAGES_MESSAGE +=
+
+$(BOLD)Installing libraries using Homebrew$(END_BOLD)
+
+We seem to be running on a Mac with Homebrew installed. Here's how to install the
+required packages for all codes system-wide using Homebrew:
+
+$(HOMEBREW_CMDS)
+
+endef
+endif
+
+
+ifneq (,$(APT))
+define DISABLED_PACKAGES_MESSAGE +=
+
+$(BOLD)Installing libraries using APT$(END_BOLD)
+
+We seem to be running on Ubuntu or a similar Linux distribution that uses APT.
+Here's how to install the required packages for all codes system-wide using apt:
+
+$(APT_CMDS)
+
+endef
+endif
+
+
+ifneq (,$(DNF))
+define DISABLED_PACKAGES_MESSAGE +=
+
+$(BOLD)Installing libraries using DNF$(END_BOLD)
+
+We seem to be running on RedHat or a similar Linux distribution that uses DNF.
+Here's how to install the required packages for all codes system-wide using dnf:
+
+$(DNF_CMDS)
+
+endef
+endif
+
+ifeq ($(ENV_TYPE), conda)
+
+define DISABLED_PACKAGES_MESSAGE +=
+
+$(BOLD)Installing libraries using Conda$(END_BOLD)
+
+If you don't have administrator access to this machine, then using the system package
+manager will not work. Instead, you can install the dependencies into the local conda
+environment:
+
+$(CONDA_CMDS)
+
+endef
+
+else
+
 define DISABLED_PACKAGES_MESSAGE +=
 
 Creating and activating a Conda environment will allow you to install the missing
@@ -118,49 +187,44 @@ again.
 endef
 endif
 
+ifneq (cuda, $(filter cuda, $(FEATURES)))
+
+define DISABLED_PACKAGES_MESSAGE +=
+
+$(BOLD)Installing CUDA$(END_BOLD)
+
+If you have an nVidia GPU and a code that can use CUDA, then compiling with CUDA support
+will greatly increase performance. Installing CUDA is a bit more complicated than the
+other dependencies however. CUDA consists of two parts, the driver and the toolkit. The
+driver must be installed on the system, as part of the nVidia GPU drivers. The toolkit
+can be installed separately via an installer, the system package manager, or conda.
+
+Here are a few useful links:
+
+Installing nVidia drivers on Ubuntu: https://ubuntu.com/server/docs/nvidia-drivers-installation
+NVIDIA CUDA installation guide for Linux: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
+CUDA on Windows Subsystem for Linux: https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl-2
+
+endef
+
+ifeq ($(ENV_TYPE), conda)
+
+define DISABLED_PACKAGES_MESSAGE +=
+
+To install the CUDA toolkit using conda, you can use
+
+    conda install -c nvidia cuda-toolkit
+
+but note that you will still need to install the drivers separately if they are not
+available already.
+
+endef
+
+endif
+
+endif
+
 DISABLED_PACKAGES_MESSAGE := $(subst $(newline),\n,$(subst ','\'',$(DISABLED_PACKAGES_MESSAGE)))
-
-
-define MACPORTS_MESSAGE :=
-
-We seem to be running on a Mac with MacPorts installed. Here's how to install the
-required packages for each missing feature:
-
-endef
-
-MACPORTS_MESSAGE := $(subst $(newline),\n,$(subst ','\'',$(MACPORTS_MESSAGE)))
-
-
-
-define HOMEBREW_MESSAGE :=
-
-We seem to be running on a Mac with Homebrew installed. Here's how to install the
-required packages for each missing feature.
-
-endef
-
-HOMEBREW_MESSAGE := $(subst $(newline),\n,$(subst ','\'',$(HOMEBREW_MESSAGE)))
-
-
-define APT_MESSAGE :=
-
-We seem to be running on Ubuntu or a similar Linux distribution that uses APT.
-Here's how to install the required packages for each missing feature.
-
-endef
-
-APT_MESSAGE := $(subst $(newline),\n,$(subst ','\'',$(APT_MESSAGE)))
-
-
-define YUM_MESSAGE :=
-
-We seem to be running on RedHat or a similar Linux distribution that uses YUM.
-Here's how to install the required packages for each missing feature.
-
-endef
-
-YUM_MESSAGE := $(subst $(newline),\n,$(subst ','\'',$(YUM_MESSAGE)))
-
 
 
 define INSTALL_HELP :=
