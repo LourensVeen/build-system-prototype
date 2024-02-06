@@ -1,0 +1,12 @@
+AC_CONFIG_MACRO_DIRS([shared/m4])
+AC_INIT([amuse-ph4], [1.0])
+
+AC_PROG_CC()
+AC_PROG_AR()
+AC_PROG_RANLIB()
+AX_CUDA()
+
+AC_CONFIG_FILES([config.mk])
+AC_SUBST(GCC)
+AC_OUTPUT
+

@@ -1,4 +1,4 @@
-AC_CONFIG_MACRO_DIRS([m4])
+AC_CONFIG_MACRO_DIRS([shared/m4])
 AC_INIT([amuse], [1.0])
 
 # The standard compiler checks AC_PROG_* crash if the compiler is not found, which is
