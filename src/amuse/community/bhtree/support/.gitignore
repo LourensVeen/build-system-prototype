@@ -1,0 +1,7 @@
+*
+!.gitignore
+!configure.ac
+!configure
+!shared
+!config.mk.in
+

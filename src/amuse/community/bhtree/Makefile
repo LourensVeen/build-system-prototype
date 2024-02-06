@@ -1,6 +1,15 @@
+ifneq (,$(filter-out clean distclean, $(MAKECMDGOALS)))
+include support/config.mk
+endif
+
 CODELIB = src/libbhtree.a
 LDFLAGS +=
 LDLIBS +=
+
+
+# Detecting dependencies
+support/config.mk:
+	cd support && ./configure
 
 
 # Building the code into a static library
@@ -19,11 +28,11 @@ amuse-bhtree_contains: cpu_worker
 
 # Building and installing packages
 develop-%: %_contains $(CODELIB)
-	support/uninstall.sh $*
+	support/shared/uninstall.sh $*
 	python -m pip install -e ./$*
 
 install-%: %_contains $(CODELIB)
-	support/uninstall.sh $*
+	support/shared/uninstall.sh $*
 	python -m pip install ./$*
 
 
