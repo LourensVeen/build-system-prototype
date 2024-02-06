@@ -236,6 +236,19 @@ $(ENV_TYPE) environment $(ENV_NAME), type
 
     make install-packages
 
+
+To install a specific package, you can use
+
+    make install-amuse-bhtree
+
+or whichever package you want to install, as long as it's enabled.
+
+To do a development install of a specific package, you can use
+
+    make develop-amuse-bhtree
+
+or whichever package you want to work on.
+
 endef
 
 INSTALL_HELP := $(subst $(newline),\n,$(subst ','\'',$(INSTALL_HELP)))
