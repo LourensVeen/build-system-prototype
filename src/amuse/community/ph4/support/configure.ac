@@ -1,4 +1,4 @@
-AC_CONFIG_MACRO_DIRS([shared/m4])
+AC_CONFIG_MACRO_DIRS([../support/m4])
 AC_INIT([amuse-ph4], [1.0])
 
 AC_PROG_CC()

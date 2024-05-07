@@ -1,0 +1,22 @@
+[project]
+name = "amuse-ph4-gpu"
+version = "2024.04.0"
+dependencies = [
+    "amuse-framework"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+skip-excluded-dirs = true
+
+[tool.hatch.build.targets.wheel]
+include = ["ph4"]
+exclude = ["ph4/*"]
+artifacts = ["ph4/gpu_worker"]
+
+[tool.hatch.build.targets.wheel.sources]
+"ph4" = "amuse/community/ph4"
+

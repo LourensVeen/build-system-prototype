@@ -18,7 +18,7 @@ DISABLED_PACKAGES :=
 COMMUNITY_CODES = $(filter-out Makefile, $(subst src/amuse/community/,,$(wildcard src/amuse/community/*)))
 
 # List of worker metadata files for all community codes
-COMM_DEPS = $(foreach d,$(wildcard src/amuse/community/*), $(wildcard $d/*.amuse_deps))
+COMM_DEPS = $(foreach d,$(wildcard src/amuse/community/*), $(wildcard $d/packages/*.amuse_deps))
 
 # List of makefile snippets produced from the metadata files
 COMM_DEPS_MK = $(patsubst src/amuse/community/%, support/comm_deps_mk/%.mk, $(COMM_DEPS))
@@ -46,7 +46,7 @@ support/comm_deps_mk/%.mk: src/amuse/community/%
 	@echo 'ENABLED_PACKAGES += \\n$(notdir $(patsubst %.amuse_deps,%,$*))' >>$@
 	@echo >>$@
 	@echo '%-$(notdir $(patsubst %.amuse_deps,%,$*)):' >>$@
-	@echo '\tmake -C $(dir $<)' $$\@ >>$@
+	@echo '\tmake -C $(dir $<)/..' $$\@ >>$@
 	@echo >>$@
 	@echo 'develop-packages: develop-$(notdir $(patsubst %.amuse_deps,%,$*))' >>$@
 	@echo >>$@

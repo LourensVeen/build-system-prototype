@@ -2,10 +2,6 @@ ifneq (,$(filter-out clean distclean, $(MAKECMDGOALS)))
 include support/config.mk
 endif
 
-CODELIB = src/libbhtree.a
-LDFLAGS +=
-LDLIBS +=
-
 
 # Detecting dependencies
 support/config.mk:
@@ -13,6 +9,10 @@ support/config.mk:
 
 
 # Building the code into a static library
+CODELIB = src/libbhtree.a
+LDFLAGS +=
+LDLIBS +=
+
 $(CODELIB):
 	$(MAKE) -C src amuse
 
@@ -29,21 +29,22 @@ amuse-bhtree_contains: cpu_worker
 # Building and installing packages
 develop-%: %_contains $(CODELIB)
 	support/shared/uninstall.sh $*
-	python -m pip install -e ./$*
+	python -m pip install -e packages/$*
 
 install-%: %_contains $(CODELIB)
 	support/shared/uninstall.sh $*
-	python -m pip install ./$*
+	python -m pip install packages/$*
 
 
 # Cleaning up
 .PHONY: clean
 clean:
 	$(MAKE) -C src clean
-	rm -rf *worker *.o
-	rm -rf amuse-bhtree/build amuse-bhtree/*.egg-info
+	rm -rf *.o *worker
 
 .PHONY: distclean
 distclean: clean
-	$(MAKE) -C src distclean
+	-$(MAKE) -C src distclean
+	rm -f support/config.mk support/config.log support/config.status
+	rm -rf support/autom4te.cache
 

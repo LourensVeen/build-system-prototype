@@ -1,0 +1,23 @@
+[project]
+name = "amuse-bhtree"
+version = "2024.04.0"
+requires-python = ">=3.7"
+dependencies = [
+    "amuse-framework"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+skip-excluded-dirs = true
+
+[tool.hatch.build.targets.wheel]
+include = ["bhtree/**/*.py"]
+exclude = ["bhtree/amuse-bhtree"]
+artifacts = ["bhtree/cpu_worker"]
+
+[tool.hatch.build.targets.wheel.sources]
+"bhtree" = "amuse/community/bhtree"
+
